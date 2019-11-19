@@ -1,3 +1,5 @@
+import { Order } from "../view/customers/order";
+
 // export const registerUser = (emailSignIn, passwordSignIn) => {
 //     return firebase.auth().createUserWithEmailAndPassword(emailSignIn, passwordSignIn)
 //   };
@@ -41,6 +43,7 @@
           callback(data);
       });
   }
+
   
 //   export const deletePost = (postId) => {
 //       return firebase.firestore().collection("posts").doc(postId).delete();

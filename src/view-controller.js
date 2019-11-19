@@ -1,10 +1,6 @@
 import {
-	registerUser,
 	exit,
-	loginUser,
 	db,
-	savePostdb,
-	getUser,
 
 } from './controller/firebase.js';
 

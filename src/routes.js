@@ -1,8 +1,12 @@
 import {
     Home
   } from './view/customers/home.js';
- 
- 
+import{
+  Order
+} from './view/customers/order.js'
+import{
+  viewPostdb
+}from './controller/firebase.js'
   
   
   export const initRouter = () => {
@@ -27,9 +31,16 @@ import {
         root.innerHTML = '';
         root.appendChild(Home());
         break;
-    //   case 'register':
-    //     root.appendChild(registerScreen());
-    //     break;
+      case 'order':{
+        root.innerHTML='';
+        viewPostdb((products) => {
+          root.innerHTML = '';
+          root.appendChild(Order(products))
+        })
+        break;
+      }
+
+        
       // default:
       //   root.appendChild(Login());
       //   break;
