@@ -2,8 +2,8 @@ import {
     Home
   } from './view/customers/home.js';
 import{
-  Order
-} from './view/customers/order.js'
+  Products
+} from './view/customers/products.js'
 import{
   viewPostdb
 }from './controller/firebase.js'
@@ -13,6 +13,7 @@ import{
     window.addEventListener('load', changeTmp(window.location.hash))
     if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash)
   }
+
   
   const changeTmp = (hash) => {
     if (hash === '#/' || hash === '' || hash === '#') {
@@ -35,12 +36,12 @@ import{
         root.innerHTML='';
         viewPostdb((products) => {
           root.innerHTML = '';
-          root.appendChild(Order(products))
+          root.appendChild(Products(products))
         })
         break;
       }
 
-        
+
       // default:
       //   root.appendChild(Login());
       //   break;

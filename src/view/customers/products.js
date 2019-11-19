@@ -1,8 +1,6 @@
-export const Products = (data, menu) => { 
+export const Products = (prod) => { 
     const divElemt = document.createElement('div');
-    const productsPage = data.filter(prod => {
-        return prod.type === menu
-    }).map(prod => (
+    const productsPage = 
        `<div data-testid=${prod._id} className="card my-3" key=${prod._id}>
           <img className="card-img-top" src=${prod.img} alt=${prod.name} />
           <div className="card-body">
@@ -12,7 +10,6 @@ export const Products = (data, menu) => {
             S/. ${prod.price}
           </div>
         </div>`
-      ))
     ;
     divElemt.innerHTML = productsPage;
     divElemt.classList.add('products');

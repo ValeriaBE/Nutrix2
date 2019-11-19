@@ -1,4 +1,4 @@
-import { Order } from "../view/customers/order";
+
 
 // export const registerUser = (emailSignIn, passwordSignIn) => {
 //     return firebase.auth().createUserWithEmailAndPassword(emailSignIn, passwordSignIn)
@@ -11,6 +11,8 @@ import { Order } from "../view/customers/order";
   export const db = ()=>{
     return firebase.firestore();
   }
+
+
   
 //   export const getUser = () => {
 //     return firebase.auth().currentUser;
@@ -32,7 +34,7 @@ import { Order } from "../view/customers/order";
   }
   
   export const viewPostdb = (callback) => {
-      firebase.firestore().collection("Productos").onSnapshot((querySnapshot) => {
+      firebase.firestore().collection("Productos").doc('Frutas').collection('TodoFrutas').onSnapshot((querySnapshot) => {
           const data = [];
           querySnapshot.forEach((doc) => {
               data.push({
@@ -40,9 +42,10 @@ import { Order } from "../view/customers/order";
                   ...doc.data()
               });
           });
-          callback(data);
+         callback(data[0]);
       });
-  }
+  };
+
 
   
 //   export const deletePost = (postId) => {
