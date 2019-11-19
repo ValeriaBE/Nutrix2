@@ -1,0 +1,33 @@
+@include media(mobile) {
+    .hide-mobile {
+        display: none !important;
+    }
+    .hide-tablet-on-down {
+        display: none !important;
+    }
+    .hide-tablet-on-up{
+        display: block!important;
+    }
+}
+
+@include media(tablet) {
+
+    .hide-tablet-on-up {
+        display: none!important;
+    }
+    .hide-tablet-on-down {
+        display: none !important;
+    }
+    .hide-mobile {
+        display: block!important;
+    }
+}
+
+@include media(desktop) {
+    .hide-desktop {
+        display: none !important;
+    }
+    .hide-tablet-on-down {
+        display: block !important;
+    }
+}

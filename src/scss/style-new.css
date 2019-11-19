@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
+.home {
+  background-color: red;
+}
+
+.home {
+  background-color: #4ccb70;
+}
+
+.home img {
+  width: col(10, 37);
+}
+
+/* Center and max-width the content */
+.AMIPage {
+  float: unset !important;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 328px;
+  padding: 0;
+}
+
+@media only screen and (min-width: 481px) {
+  .container {
+    max-width: 656px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .container {
+    max-width: 1184px;
+    width: 100%;
+  }
+}
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row .col {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+/*# sourceMappingURL=style-new.css.map */
+
+/*# sourceMappingURL=style-new.css.map */
