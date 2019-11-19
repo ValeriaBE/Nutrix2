@@ -33,8 +33,8 @@
       })
   }
   
-  export const viewPostdb = (callback) => {
-      firebase.firestore().collection("Productos").doc('Frutas').collection('TodoFrutas').onSnapshot((querySnapshot) => {
+  export const viewPostdb = (callback, suffix,col) => {
+      firebase.firestore().collection("Productos").doc(suffix).collection(col).onSnapshot((querySnapshot) => {
           const data = [];
           querySnapshot.forEach((doc) => {
               data.push({
@@ -42,7 +42,7 @@
                   ...doc.data()
               });
           });
-         callback(data[0]);
+         callback(data);
       });
   };
 

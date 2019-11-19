@@ -2,13 +2,12 @@ import {
     Home
   } from './view/customers/home.js';
 import{
-  Products
-} from './view/customers/products.js'
+Order} from './view/customers/order.js'
 import{
   viewPostdb
 }from './controller/firebase.js'
   
-  
+
   export const initRouter = () => {
     window.addEventListener('load', changeTmp(window.location.hash))
     if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash)
@@ -36,8 +35,8 @@ import{
         root.innerHTML='';
         viewPostdb((products) => {
           root.innerHTML = '';
-          root.appendChild(Products(products))
-        })
+          root.appendChild(Order(products))
+        }, 'Frutas', 'TodoFrutas')
         break;
       }
 
