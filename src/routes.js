@@ -1,6 +1,6 @@
 import {
-    screen1
-  } from './view/login.js';
+    Home
+  } from './view/customers/home.js';
  
  
   
@@ -25,13 +25,13 @@ import {
     switch (router) {
       case 'home':
         root.innerHTML = '';
-        root.appendChild(screen1());
+        root.appendChild(Home());
         break;
     //   case 'register':
     //     root.appendChild(registerScreen());
     //     break;
-      default:
-        root.appendChild(Login());
-        break;
+      // default:
+      //   root.appendChild(Login());
+      //   break;
     }
   }
