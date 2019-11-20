@@ -86,6 +86,30 @@
 
 .total {
   width: 50%;
+  text-align: center;
+  border: 1px solid #FEDE4b;
+  padding: 10px;
+}
+
+.total table {
+  width: 100%;
+}
+
+.total table h3 {
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.total table th {
+  font-weight: 500;
+}
+
+.total table td button {
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  background-color: #FFB129;
+  color: white;
 }
 
 .tab-content > .active {

@@ -42,7 +42,7 @@ const divElemt = document.createElement('div');
   <div class="tab-pane fade prod" id="cereales" role="tabpanel" aria-labelledby="contact-tab"></div>
 </div>
 </div>
-    <div id="total" ></div>
+    <div id="total" class="total fifty"></div>
     </div>
   `;
   divElemt.innerHTML = orderPage;
@@ -129,10 +129,36 @@ cerealesarray()
   return divElemt;
 }
 
-export const Total = () => {
+export const Total = (item) => {
   const divElemt = document.createElement('div');
-  const orderPage = `<h2>Hi</h2>`;
+  const orderPage = `
+  <table>
+      <thead>
+        <tr>
+          <th><h3>Pedido</h3></th>
+        </tr>
+        <tr>
+          <th >Nombre</th>
+          <th >Cantidad</th>
+          <th >Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td >Total:</td>
+          <td>S/. {total.total}</td>
+          <td >
+            <button onClick={postOrder}>Enviar a cocina</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
   divElemt.innerHTML = orderPage;
-  divElemt.classList.add('total');
+  divElemt.classList.add('totalbox');
   return divElemt;
 }
+// {items.map(i => (
+//   <Lista item={i} key={i._id} remove={remove} increase={increase} decrease={decrease} />
+// ))}
