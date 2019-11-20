@@ -13,8 +13,78 @@
             "price": 13
         },
         "Limon":{
-            "name": "Granadilla",
-            "price": 13
+            "name": "Limón",
+            "price": 15
+        },
+        "Mandarina":{
+            "name": "Mandarina",
+            "price": 10
+        },
+        "Palta":{
+            "name": "Palta",
+            "price": 12
+        },
+        "Papaya":{
+            "name": "Papaya",
+            "price": 17
+        },
+        "Piña":{
+            "name": "Piña",
+            "price": 18
+        },
+        "Plátano":{
+            "name": "Plátano",
+            "price": 11
+        }
+    },
+    "vegetales":{
+        "Ajo":{
+            "name":"Ajo",
+            "price": 7
+        },
+        "Beterraga":{
+            "name":"Beterraga",
+            "price": 6
+        },
+        "Cebolla Blanca":{
+            "name":"Cebolla Blanca",
+            "price": 5
+        },
+        "Cebolla Roja":{
+            "name":"Cebolla Roja",
+            "price": 5
+        },
+        "Choclo":{
+            "name":"Choclo",
+            "price": 6
+        },
+        "Col":{
+            "name":"Col",
+            "price": 6
+        },
+        "Jengibre":{
+            "name":"Jengibre",
+            "price": 7
+        },
+        "Papa coctel":{
+            "name":"Papa Cóctel",
+            "price": 10
+        },
+        "Rabanito":{
+            "name":"Rabanito",
+            "price": 8
+        },
+        "Tomate":{
+            "name":"Tomate",
+            "price": 9
+        },
+        "Zanahoria":{
+            "name":"Zanahoria",
+            "price": 6
+        },
+        "Zapallo":{
+            "name":"Zapallo",
+            "price": 11
         }
     }
 }
