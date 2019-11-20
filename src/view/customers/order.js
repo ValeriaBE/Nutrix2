@@ -149,7 +149,7 @@ export const Total = (item) => {
           <td >Total:</td>
           <td>S/. {total.total}</td>
           <td >
-            <button onClick={postOrder}>Enviar a cocina</button>
+            <button onClick={postOrder}>Enviar a caja</button>
           </td>
         </tr>
       </tbody>
