@@ -62,16 +62,50 @@
   box-sizing: border-box;
 }
 
-.order {
+.order header {
+  width: -webkit-fill-available;
+  background-color: #4ccb70;
+  height: 70px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.order header img {
+  width: auto;
+  height: 70px;
+}
+
+.order .side {
+  display: flex;
+}
+
+.order .fifty {
   width: 50%;
+  margin-right: 50px;
 }
 
 .total {
   width: 50%;
 }
 
-/*# sourceMappingURL=style-new.css.map */
-/*# sourceMappingURL=style-new.css.map */
+.tab-content > .active {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.products {
+  width: 35%;
+  text-align: center;
+  margin: 10px;
+}
+
+.products h5 {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 /*# sourceMappingURL=style-new.css.map */
 
 /*# sourceMappingURL=style-new.css.map */
