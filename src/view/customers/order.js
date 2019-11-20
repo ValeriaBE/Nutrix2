@@ -1,5 +1,4 @@
 import { Products } from './products.js';
-// import{Total} from '../collection.js'
 
 export const Order = () => {
 const divElemt = document.createElement('div');
@@ -47,8 +46,6 @@ const divElemt = document.createElement('div');
   `;
   divElemt.innerHTML = orderPage;
   divElemt.classList.add('order'); 
-  const tot = divElemt.querySelector('#total')
-  tot.appendChild(Total())
 const valueArray= ()=>{
     firebase.firestore().collection("Productos").doc('Frutas').collection('TodoFrutas')
     .get().then(function(querySnapshot) {
@@ -126,10 +123,12 @@ limpiezaArray()
 mascotasArray()
 reposteriaArray()
 cerealesarray()
+const tot = divElemt.querySelector('#total')
+tot.appendChild(Total())
   return divElemt;
 }
 
-export const Total = (item) => {
+export const Total = (items) => {
   const divElemt = document.createElement('div');
   const orderPage = `
   <table>
@@ -144,7 +143,7 @@ export const Total = (item) => {
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td >Total:</td>
           <td>S/. {total.total}</td>
@@ -159,6 +158,6 @@ export const Total = (item) => {
   divElemt.classList.add('totalbox');
   return divElemt;
 }
-// {items.map(i => (
-//   <Lista item={i} key={i._id} remove={remove} increase={increase} decrease={decrease} />
-// ))}
+      //  ${items.map(i => (
+      //      Lista( item={i}, remove={remove}, increase={increase}, decrease={decrease})
+      //    ))}

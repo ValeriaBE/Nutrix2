@@ -1,27 +1,8 @@
-
-
-// export const registerUser = (emailSignIn, passwordSignIn) => {
-//     return firebase.auth().createUserWithEmailAndPassword(emailSignIn, passwordSignIn)
-//   };
-  
-//   export const loginUser = (emailLogIn, passwordLogIn) => {
-//     return firebase.auth().signInWithEmailAndPassword(emailLogIn, passwordLogIn)
-//   };
-  
-  export const db = ()=>{
+    export const db = ()=>{
     return firebase.firestore();
   }
 
 
-  
-//   export const getUser = () => {
-//     return firebase.auth().currentUser;
-//   }
-  
-//   export const activeUser = (u2) => {
-//       return firebase.auth().onAuthStateChanged((u2));
-//   }
-  
   export const exit = () => {
     return firebase.auth().signOut()
   };
@@ -46,19 +27,14 @@
       });
   };
 
-  export const call = (docu, coll) => {
-    var docRef = firebase.firestore().collection("Productos").doc(docu).collection(coll);
-
-    docRef.get().then(function(querySnapshot) {
+export  const frutasArr= ()=>{
+    firebase.firestore().collection("Productos").doc('Frutas').collection('TodoFrutas')
+    .get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data()) ;
+        return (doc.data())
       });
     })
-    .catch(function(error) {
-      return "Error getting documents: ", error;
-    });
-  }
+}
 
 
 //   export const deletePost = (postId) => {

@@ -1,0 +1,20 @@
+{
+    "frutas":{
+        "Chirimoya":{
+            "name": "Chirimoya",
+            "price": 17
+        },
+        "Durazno":{
+            "name": "Durazno",
+            "price": 15
+        },
+        "Granadilla":{
+            "name": "Granadilla",
+            "price": 13
+        },
+        "Limon":{
+            "name": "Granadilla",
+            "price": 13
+        }
+    }
+}
