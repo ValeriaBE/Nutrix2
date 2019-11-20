@@ -1,39 +1,145 @@
-import {
-    Products
-}from './products.js'
-import{Total} from '../collection.js'
-export const Order = (objProducts) => {
-    let type = 'frutas'
-
+import { Products } from './products.js';
+// import{Total} from '../collection.js'
+export const Order = () => {
 const divElemt = document.createElement('div');
   const orderPage = `
-  <div>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a id="tab" class="nav-link active" role="tablist" data-toggle="tab" href="#/order" onclick=${type="Frutas"} value="Frutas">Frutas</a>
-        </li>
-        <li class="nav-item">
-            <a id="tab" class="nav-link" role="tablist" data-toggle="tab" href="#/order" onclick=${type=="Vegetales"} value="Vegetales">Vegetales</a>
-        </li>
-        <li class="nav-item">
-            <a id="tab" class="nav-link" role="tablist" data-toggle="tab" href="#/order" onclick=${type=="Snacks"} value="Snacks">Snacks</a>
-        </li>
-    </ul>
-    <div id="productslist" class="card-columns">
-              
-    </div>
-    </div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#frutas" role="tab" aria-controls="home" aria-selected="true">Frutas</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#vegetales" role="tab" aria-controls="profile" aria-selected="false">Vegetales</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#snacks" role="tab" aria-controls="contact" aria-selected="false">Snacks</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#mascotas" role="tab" aria-controls="contact" aria-selected="false">Mascotas</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#limpieza" role="tab" aria-controls="contact" aria-selected="false">Limpieza</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reposteria" role="tab" aria-controls="contact" aria-selected="false">Repostería</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#cereales" role="tab" aria-controls="contact" aria-selected="false">Cereales</a>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="frutas" role="tabpanel" aria-labelledby="home-tab">
+
+  </div>
+  <div class="tab-pane fade" id="vegetales" role="tabpanel" aria-labelledby="profile-tab"></div>
+  <div class="tab-pane fade" id="snacks" role="tabpanel" aria-labelledby="contact-tab"></div>
+  <div class="tab-pane fade" id="mascotas" role="tabpanel" aria-labelledby="contact-tab"></div>
+  <div class="tab-pane fade" id="limpieza" role="tabpanel" aria-labelledby="contact-tab"></div>
+  <div class="tab-pane fade" id="reposteria" role="tabpanel" aria-labelledby="contact-tab"></div>
+  <div class="tab-pane fade" id="cereales" role="tabpanel" aria-labelledby="contact-tab"></div>
+</div>
     <div id="total"></div>
   `;
   divElemt.innerHTML = orderPage;
-  divElemt.classList.add('order');
-  const div = divElemt.querySelector('#productslist');
-  const total = divElemt.querySelector('#total');
-  total.innerHTML=Total();
-  const tab = divElemt.querySelector('#tab');
-  console.log(tab.value)
-  objProducts.forEach(prod => {
-        div.appendChild(Products(prod))
-  });
+  divElemt.classList.add('order'); 
+  const divFrutas=document.querySelector('#frutas')
+
+const valueArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Frutas').collection('TodoFrutas')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divFrutas=document.querySelector('#frutas')
+        return divFrutas.appendChild(Products(doc.data()))
+      });
+    })
+}
+const vegArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Vegetales').collection('TodoVegetales')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divVegetales=document.querySelector('#vegetales')
+        return divVegetales.appendChild(Products(doc.data()))
+      });
+    })
+}
+const snacksArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Snacks').collection('TodoSnacks')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divSnacks=document.querySelector('#snacks')
+        return divSnacks.appendChild(Products(doc.data()))
+      });
+    })
+}
+const limpiezaArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Productos de Limpieza').collection('TodoLimpieza')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divLimpieza=document.querySelector('#limpieza')
+        return divLimpieza.appendChild(Products(doc.data()))
+      });
+    })
+}
+const mascotasArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Suplementos para Mascotas').collection('TodoMascotas')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divMascotas=document.querySelector('#mascotas')
+        return divMascotas.appendChild(Products(doc.data()))
+      });
+    })
+}
+const reposteriaArray= ()=>{
+    firebase.firestore().collection("Productos").doc('Repostería').collection('TodoReposteria')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const divrepo=document.querySelector('#reposteria')
+        return divrepo.appendChild(Products(doc.data()))
+      });
+    })
+}
+const cerealesarray= ()=>{
+    firebase.firestore().collection("Productos").doc('Cereales y Leche').collection('TodoCereales')
+    .get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc.data())
+        // return (doc.data()).forEach(prod=>{
+        //     divFrutas.appendChild(Products(prod))
+        // })
+        const diveCereales=document.querySelector('#cereales')
+        return diveCereales.appendChild(Products(doc.data()))
+      });
+    })
+}
+valueArray()
+vegArray()
+snacksArray()
+limpiezaArray()
+mascotasArray()
+reposteriaArray()
+cerealesarray()
   return divElemt;
 }

@@ -46,8 +46,21 @@
       });
   };
 
+  export const call = (docu, coll) => {
+    var docRef = firebase.firestore().collection("Productos").doc(docu).collection(coll);
 
-  
+    docRef.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data()) ;
+      });
+    })
+    .catch(function(error) {
+      return "Error getting documents: ", error;
+    });
+  }
+
+
 //   export const deletePost = (postId) => {
 //       return firebase.firestore().collection("posts").doc(postId).delete();
 //   }

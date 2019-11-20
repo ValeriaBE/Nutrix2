@@ -3,9 +3,7 @@ import {
   } from './view/customers/home.js';
 import{
 Order} from './view/customers/order.js'
-import{
-  viewPostdb
-}from './controller/firebase.js'
+
   
 
   export const initRouter = () => {
@@ -33,10 +31,7 @@ import{
         break;
       case 'order':{
         root.innerHTML='';
-        viewPostdb((products) => {
-          root.innerHTML = '';
-          root.appendChild(Order(products))
-        }, 'Frutas', 'TodoFrutas')
+          root.appendChild(Order())
         break;
       }
 
