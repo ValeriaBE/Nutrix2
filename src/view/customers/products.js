@@ -1,12 +1,12 @@
-import {ARRAY} from '../../controller/products.js'
-import {Add} from '../../view-controller.js'
+
+import{shoppingCart, displayCart} from '../../view-controller.js'
 export const Products = (prod, add) => { 
     const divElemt = document.createElement('div');
     const productsPage = 
-       `<div class="card" key=${prod._id}>
+       `<div class="add-to-cart card" key=${prod._id} data-name=${prod.name} data-price=${prod.price}>
           <img class="card-img-top" src=${prod.img} alt=${prod.name} />
           <div class="card-body">
-            <h5 class="card-title"  onClick=${Add(add, prod.name)}>${prod.name}</h5>
+            <h5 class="card-title">${prod.name}</h5>
           </div>
           <div class="card-footer justify-content-center">
             S/. ${prod.price}
@@ -15,6 +15,13 @@ export const Products = (prod, add) => {
     ;
     divElemt.innerHTML = productsPage;
     divElemt.classList.add('products');
+    $('.add-to-cart').click(function(event) {
+      event.preventDefault();
+      var name = $(this).data('name');
+      var price = Number($(this).data('price'));
+      shoppingCart.addItemToCart(name, price, 1);
+       displayCart()
+      });
     return divElemt;
 }
 

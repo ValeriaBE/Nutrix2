@@ -1,6 +1,8 @@
 import { Products } from './products.js';
 import {List} from './list.js'
-export const Order = (arr) => {
+import{displayCart}from '../../view-controller.js'
+import{shoppingCart} from '../../view-controller.js'
+export const Order = () => {
 const divElemt = document.createElement('div');
   const orderPage = `
   <header ><img src='../../img/1.png' /></header>
@@ -52,7 +54,7 @@ const valueArray= ()=>{
       querySnapshot.forEach(function(doc) {
        
         const divFrutas=document.querySelector('#frutas')
-        return divFrutas.appendChild(Products(doc.data(), arr))
+        return divFrutas.appendChild(Products(doc.data()))
       });
     })
 }
@@ -144,12 +146,12 @@ export const Total = () => {
         </tr>
       </thead>
       <tbody>
-
+        <tr class="show-cart">${displayCart()}</tr>
         <tr>
           <td >Total:</td>
-          <td>S/. {total.total}</td>
+          <td class="total-cart">${shoppingCart.totalCart()}</td>
           <td >
-            <button onClick={postOrder}>Enviar a caja</button>
+            <button onClick=${shoppingCart.clearCart()}>Enviar a caja</button>
           </td>
         </tr>
       </tbody>
@@ -157,7 +159,9 @@ export const Total = () => {
   `;
   divElemt.innerHTML = orderPage;
   divElemt.classList.add('totalbox');
-
+	// $('.show-cart').html(displayCart());
+	// $('.total-cart').html(shoppingCart.totalCart());
+	// $('.total-count').html(shoppingCart.totalCount());
   return divElemt;
 }
 // ${items.map(i => (
