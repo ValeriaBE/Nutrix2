@@ -6,19 +6,19 @@ export const List = (item, remove, increase, decrease ) =>{
       <button onClick={() => {
         remove(item._id)
       }}></button>
-      <p >{item.name}</p>
+      <p >${item.name}</p>
     </td>
     <td >
       <button  onClick={() => decrease(item._id)} ></button>
-      <span>{item.qty}</span>
+      <span>${item.qty}</span>
       <button onClick={() => increase(item._id)} ></button>
     </td>
     <td >
-      <p >S/. {item.total}</p>
+      <p >S/. ${item.total}</p>
     </td>
 `
-  divElemt.innerHTML = listPage;
-  divElemt.classList.add('list'); 
+  divElem.innerHTML = listPage;
+  divElem.classList.add('list'); 
   return divElem;
 }
   

@@ -51,7 +51,21 @@ export const exitUser = () => {
 export const changeRoute = (route) => {
 	location.hash = route;
 };
-
+export const Add = (arr, name) =>{
+	if (arr.map(p => p.name).includes(name)) {
+	  return arr.map((el) => {
+		if (el.name === name) {
+		  return({ name: name, qty: el.qty + 1 })
+		}
+		return(el)
+	  })
+	}
+	return([
+	  ...arr,
+	  { name: name, qty: 1 },
+	  console.log('yes')
+	])
+  }
 // export const savePost = () => {
 // 	let textPost = document.querySelector('#text-post').value;
 // 	let modoPost = document.querySelector('#visualización').value;

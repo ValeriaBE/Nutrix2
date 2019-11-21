@@ -1,6 +1,6 @@
 import { Products } from './products.js';
-
-export const Order = () => {
+import {List} from './list.js'
+export const Order = (arr) => {
 const divElemt = document.createElement('div');
   const orderPage = `
   <header ><img src='../../img/1.png' /></header>
@@ -52,7 +52,7 @@ const valueArray= ()=>{
       querySnapshot.forEach(function(doc) {
        
         const divFrutas=document.querySelector('#frutas')
-        return divFrutas.appendChild(Products(doc.data()))
+        return divFrutas.appendChild(Products(doc.data(), arr))
       });
     })
 }
@@ -125,10 +125,11 @@ reposteriaArray()
 cerealesarray()
 const tot = divElemt.querySelector('#total')
 tot.appendChild(Total())
+
   return divElemt;
 }
 
-export const Total = (items) => {
+export const Total = () => {
   const divElemt = document.createElement('div');
   const orderPage = `
   <table>
@@ -143,7 +144,7 @@ export const Total = (items) => {
         </tr>
       </thead>
       <tbody>
-        <tr id="dynamic-list"></tr>
+
         <tr>
           <td >Total:</td>
           <td>S/. {total.total}</td>
@@ -159,6 +160,7 @@ export const Total = (items) => {
 
   return divElemt;
 }
-      //  ${items.map(i => (
-      //      Lista( item={i}, remove={remove}, increase={increase}, decrease={decrease})
-      //    ))}  
+// ${items.map(i => (
+//   List( i)
+// ))}
+
