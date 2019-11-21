@@ -52,7 +52,7 @@ const valueArray= ()=>{
       querySnapshot.forEach(function(doc) {
        
         const divFrutas=document.querySelector('#frutas')
-        return divFrutas.appendChild(Products(doc.data()))
+        return divFrutas.appendChild(Products(doc.data(), addItem(event)))
       });
     })
 }
@@ -125,6 +125,14 @@ reposteriaArray()
 cerealesarray()
 const tot = divElemt.querySelector('#total')
 tot.appendChild(Total())
+const addItem=(event)=>{
+
+  // var ul = document.getElementById("dynamic-list");
+  // var candidate = event.target.nodeName;
+  // var li = document.createElement("li");
+  // li.appendChild(document.createTextNode(candidate.name));
+  // ul.appendChild(li);
+}
   return divElemt;
 }
 
@@ -143,7 +151,7 @@ export const Total = (items) => {
         </tr>
       </thead>
       <tbody>
-
+        <tr id="dynamic-list"></tr>
         <tr>
           <td >Total:</td>
           <td>S/. {total.total}</td>
@@ -156,8 +164,9 @@ export const Total = (items) => {
   `;
   divElemt.innerHTML = orderPage;
   divElemt.classList.add('totalbox');
+
   return divElemt;
 }
       //  ${items.map(i => (
       //      Lista( item={i}, remove={remove}, increase={increase}, decrease={decrease})
-      //    ))}
+      //    ))}  

@@ -1,7 +1,9 @@
-export const Products = (prod) => { 
+
+
+export const Products = (prod, add) => { 
     const divElemt = document.createElement('div');
     const productsPage = 
-       `<div class="card" key=${prod._id}>
+       `<div class="card" key=${prod._id} onclick=${add}>
           <img class="card-img-top" src=${prod.img} alt=${prod.name} />
           <div class="card-body">
             <h5 class="card-title">${prod.name}</h5>
