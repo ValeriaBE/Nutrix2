@@ -52,7 +52,7 @@ const valueArray= ()=>{
       querySnapshot.forEach(function(doc) {
        
         const divFrutas=document.querySelector('#frutas')
-        return divFrutas.appendChild(Products(doc.data(), addItem(event)))
+        return divFrutas.appendChild(Products(doc.data()))
       });
     })
 }
@@ -125,14 +125,6 @@ reposteriaArray()
 cerealesarray()
 const tot = divElemt.querySelector('#total')
 tot.appendChild(Total())
-const addItem=(event)=>{
-
-  // var ul = document.getElementById("dynamic-list");
-  // var candidate = event.target.nodeName;
-  // var li = document.createElement("li");
-  // li.appendChild(document.createTextNode(candidate.name));
-  // ul.appendChild(li);
-}
   return divElemt;
 }
 
