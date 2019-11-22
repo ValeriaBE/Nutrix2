@@ -19,183 +19,107 @@ export const changeRoute = (route) => {
 	location.hash = route;
 };
 
+var ShoppingCart = (function($) {
+	"use strict";
+	
+	// Cahce necesarry DOM Elements
+	var productsEl = document.querySelector(".products"),
+		cartEl =     document.querySelector(".shopping-cart-list"),
+		productQuantityEl = document.querySelector(".product-quantity"),
+		emptyCartEl = document.querySelector(".empty-cart-btn"),
+		cartCheckoutEl = document.querySelector(".cart-checkout"),
+		totalPriceEl = document.querySelector(".total-price");
+	
+	// Fake JSON data array here should be API call
+	
+		productsInCart = [];
 
-export var shoppingCart = (function() {
-	let cart = [];
-	// Constructor
-	function Item(name, price, count) {
-	  this.name = name;
-	  this.price = price;
-	  this.count = count;
+	
+	// Like one before and I have also used ES6 template strings
+	var generateCartList = function() {
+	  
+	  cartEl.innerHTML = "";
+	  
+	  productsInCart.forEach(function(item) {
+		var li = document.createElement("li");
+		li.innerHTML = `${item.quantity} ${item.product.name} - $${item.product.price * item.quantity}`;
+		cartEl.appendChild(li);
+	  });
+	  
+	  productQuantityEl.innerHTML = productsInCart.length;
+	  
+	  generateCartButtons()
 	}
 	
-	// Save cart
-	function saveCart() {
-	  sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
-	}
 	
-	  // Load cart
-	function loadCart() {
-	  cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
-	}
-	if (sessionStorage.getItem("shoppingCart") != null) {
-	  loadCart();
-	}
-	
-
-	var obj = {};
-	
-	// Add to cart
-	obj.addItemToCart = function(name, price, count) {
-	  for(var item in cart) {
-		if(cart[item].name === name) {
-		  cart[item].count ++;
-		  saveCart();
-		  return;
-		}
+	// Function that generates Empty Cart and Checkout buttons based on condition that checks if productsInCart array is empty
+	var generateCartButtons = function() {
+	  if(productsInCart.length > 0) {
+		totalPriceEl.innerHTML = "$ " + calculateTotalPrice();
+	  } else {
+		'';
 	  }
-	  var item = new Item(name, price, count);
-	  cart.push(item);
-	  saveCart();
 	}
-	// Set count from item
-	obj.setCountForItem = function(name, count) {
-	  for(var i in cart) {
-		if (cart[i].name === name) {
-		  cart[i].count = count;
-		  break;
+	
+	// Setting up listeners for click event on all products and Empty Cart button as well
+	var setupListeners = function() {
+	  productsEl.addEventListener("click", function(event) {
+		var el = event.target;
+		if(el.classList.contains("add-to-cart")) {
+		 var elId = el.dataset.id;
+		 addToCart(elId);
 		}
-	  }
-	};
-	// Remove item from cart
-	obj.removeItemFromCart = function(name) {
-		for(var item in cart) {
-		  if(cart[item].name === name) {
-			cart[item].count --;
-			if(cart[item].count === 0) {
-			  cart.splice(item, 1);
-			}
-			break;
+	  });
+	  
+	  emptyCartEl.addEventListener("click", function(event) {
+		if(confirm("Are you sure?")) {
+		  productsInCart = [];
+		}
+		generateCartList();
+	  });
+	}
+	
+	// Adds new items or updates existing one in productsInCart array
+	var addToCart = function(id) {
+	  var obj = products[id];
+	  if(productsInCart.length === 0 || productFound(obj.id) === undefined) {
+		productsInCart.push({product: obj, quantity: 1});
+	  } else {
+		productsInCart.forEach(function(item) {
+		  if(item.product.id === obj.id) {
+			item.quantity++;
 		  }
+		});
 	  }
-	  saveCart();
+	  generateCartList();
+	}
+	
+	
+	// This function checks if project is already in productsInCart array
+	var productFound = function(productId) {
+	  return productsInCart.find(function(item) {
+		return item.product.id === productId;
+	  });
 	}
   
-	// Remove all items from cart
-	obj.removeItemFromCartAll = function(name) {
-	  for(var item in cart) {
-		if(cart[item].name === name) {
-		  cart.splice(item, 1);
-		  break;
-		}
-	  }
-	  saveCart();
+	var calculateTotalPrice = function() {
+	  return productsInCart.reduce(function(total, item) {
+		return total + (item.product.price *  item.quantity);
+	  }, 0);
 	}
-  
-	// Clear cart
-	obj.clearCart = function() {
-	  cart = [];
-	  saveCart();
+	
+	// This functon starts the whole application
+	var init = function() {
+	  generateProductList();
+	  setupListeners();
 	}
+	
+	// Exposes just init function to public, everything else is private
+	return {
+	  init: init
+	};
+	
+	// I have included jQuery although I haven't used it
+  })(jQuery);
   
-	// Count cart 
-	obj.totalCount = function() {
-	  var totalCount = 0;
-	  for(var item in cart) {
-		totalCount += cart[item].count;
-	  }
-	  return totalCount;
-	}
-  
-	// Total cart
-	obj.totalCart = function() {
-	  var totalCart = 0;
-	  for(var item in cart) {
-		totalCart += cart[item].price * cart[item].count;
-	  }
-	  return Number(totalCart.toFixed(2));
-	}
-  
-	// List cart
-	obj.listCart = function() {
-	  var cartCopy = [];
-	  for(let i in cart) {
-		let item = cart[i];
-		let itemCopy = {};
-		for(let p in item) {
-		  itemCopy[p] = item[p];
-  
-		}
-		itemCopy.total = Number(item.price * item.count).toFixed(2);
-		cartCopy.push(itemCopy)
-	  }
-	  return cartCopy;
-	}
-	return obj;
-  })();
-  
-  
-  // *****************************************
-  // Triggers / Events
-  // ***************************************** 
-  // Add item
-
-  
-  // Clear items
-//   $('.clear-cart').click(function() {
-// 	shoppingCart.clearCart();
-// 	displayCart();
-//   });
-  
-  
-  export const displayCart=()=> {
-	var cartArray = shoppingCart.listCart();
-	var output = "";
-	for(var i in cartArray) {
-		console.log(cartArray[i].name)
-	//   output += "<tr>"
-	// 	+ "<td>" + cartArray[i].name + "</td>" 
-	// 	+ "<td>(" + cartArray[i].price + ")</td>"
-	// 	+ "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-	// 	+ "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-	// 	+ "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-	// 	+ "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
-	// 	+ " = " 
-	// 	+ "<td>" + cartArray[i].total + "</td>" 
-	// 	+  "</tr>";
-	}
-	return output;
-
-  }
-  
-  // Delete item button
-  
-//   $('.show-cart').on("click", ".delete-item", function(event) {
-// 	var name = $(this).data('name')
-// 	shoppingCart.removeItemFromCartAll(name);
-// 	displayCart();
-//   })
-  
-  
-//   // -1
-//   $('.show-cart').on("click", ".minus-item", function(event) {
-// 	var name = $(this).data('name')
-// 	shoppingCart.removeItemFromCart(name);
-// 	displayCart();
-//   })
-//   // +1
-//   $('.show-cart').on("click", ".plus-item", function(event) {
-// 	var name = $(this).data('name')
-// 	shoppingCart.addItemToCart(name);
-// 	displayCart();
-//   })
-  
-//   // Item count input
-//   $('.show-cart').on("change", ".item-count", function(event) {
-// 	 var name = $(this).data('name');
-// 	 var count = Number($(this).val());
-// 	shoppingCart.setCountForItem(name, count);
-// 	displayCart();
-//   });
-  
-//   displayCart();
+  ShoppingCart.init();

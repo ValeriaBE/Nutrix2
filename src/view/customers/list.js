@@ -10,7 +10,7 @@ export const List = (item, remove, increase, decrease ) =>{
     </td>
     <td >
       <button  onClick={() => decrease(item._id)} ></button>
-      <span>${item.qty}</span>
+      <span class="product-quantity">0</span>
       <button onClick={() => increase(item._id)} ></button>
     </td>
     <td >

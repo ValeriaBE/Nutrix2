@@ -146,12 +146,12 @@ export const Total = () => {
         </tr>
       </thead>
       <tbody>
-        <tr class="show-cart">${displayCart()}</tr>
+        <tr class="show-cart"></tr>
         <tr>
           <td >Total:</td>
-          <td class="total-cart">${shoppingCart.totalCart()}</td>
+          <td class="total-cart"></td>
           <td >
-            <button onClick=${shoppingCart.clearCart()}>Enviar a caja</button>
+            <button >Enviar a caja</button>
           </td>
         </tr>
       </tbody>
@@ -159,9 +159,6 @@ export const Total = () => {
   `;
   divElemt.innerHTML = orderPage;
   divElemt.classList.add('totalbox');
-	// $('.show-cart').html(displayCart());
-	// $('.total-cart').html(shoppingCart.totalCart());
-	// $('.total-count').html(shoppingCart.totalCount());
   return divElemt;
 }
 // ${items.map(i => (

@@ -1,5 +1,4 @@
 
-import{shoppingCart, displayCart} from '../../view-controller.js'
 export const Products = (prod, add) => { 
     const divElemt = document.createElement('div');
     const productsPage = 
@@ -15,13 +14,7 @@ export const Products = (prod, add) => {
     ;
     divElemt.innerHTML = productsPage;
     divElemt.classList.add('products');
-    $('.add-to-cart').click(function(event) {
-      event.preventDefault();
-      var name = $(this).data('name');
-      var price = Number($(this).data('price'));
-      shoppingCart.addItemToCart(name, price, 1);
-       displayCart()
-      });
+
     return divElemt;
 }
 
