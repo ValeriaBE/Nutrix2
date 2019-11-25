@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background: cornsilk;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .button {
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    background: #FFB129;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .button:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #e0991f;
+  }
+  .container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  header{
+    width: -webkit-fill-available;
+    background-color: #4ccb70;
+    height: 70px;
+    text-align: center;
+    margin-bottom: 40px;
+    }   
+    header img{
+        width: auto;
+        height: 70px;
+    }
+  
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%
+  }
+  
+  .product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 310px;
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+  }
+  
+ 
+  .product span {
+    font-weight: bold;
+  }
+  
+  .product-image img {
+    display: block;
+    max-width: 228px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .shopping-cart {
+    text-align: center;
+    padding: 10px;
+    /* width: 20%;
+    margin-right: 30px; */
+  }
+
+  .shopping-cart-list{
+      padding: 0;
+      list-style-type: none;
+  }
+  .shopping-cart,
+  .shopping-cart-head {
+    border-radius: 5px;
+  }
+  
+  .empty-cart-btn,
+  .cart-checkout {
+    display: none;
+    
+  }
+  .empty-cart-btn:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #e0991f;
+  }
+  .cart-checkout:hover {
+    color: white;
+    text-decoration: none;
+  }
+  .empty-cart-btn {
+    margin-bottom: 5px;
+  }
+  
+  .cart-checkout {
+    background: #4ccb70;
+  }
+
+  .subtract{
+      margin-top: 20%;
+        display: flex;
+        flex-flow: column;
+  }
+  .subtract input{
+      height: 50px;
+      border: none;
+      border-radius: 30px;
+      border: 1px solid #4ccb70;
+      margin-bottom: 20px;
+      padding: 20px;
+  }
+  .subtract input::placeholder{
+      padding: 20px;
+      font-family: 'Lato', sans-serif;
+  }
