@@ -5,6 +5,8 @@ var ShoppingCart = (function($) {
     var productsEl = document.querySelector(".products"),
         cartEl =     document.querySelector(".shopping-cart-list"),
         productQuantityEl = document.querySelector(".product-quantity"),
+        billete = document.querySelector(".billete"),
+        vuelto = document.querySelector(".vuelto"),
         emptyCartEl = document.querySelector(".empty-cart-btn"),
         cartCheckoutEl = document.querySelector(".cart-checkout"),
         totalPriceEl = document.querySelector(".total-price"),
@@ -438,6 +440,10 @@ var ShoppingCart = (function($) {
       emptyCartEl.addEventListener("click", function(event) {
         if(confirm("Estás segur@?")) {
           productsInCart = [];
+          totalPriceEl.innerHTML="",
+          totalPriceEl2.innerHTML=""
+          vuelto.innerHTML=""
+          billete.value=""
         }
         generateCartList();
       });
