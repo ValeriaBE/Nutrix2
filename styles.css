@@ -48,9 +48,9 @@
     }
   
   .products {
-    display: flex;
-    flex-wrap: wrap;
-    width: 70%
+    /* display: flex;
+    flex-wrap: wrap;*/
+    width: 70% 
   }
   
   .product {
@@ -64,7 +64,10 @@
     border-radius: 5px;
 
   }
-  
+  .tab-content>.active{
+    display: flex !important;
+    flex-wrap: wrap;
+  }
  
   .product span {
     font-weight: bold;
